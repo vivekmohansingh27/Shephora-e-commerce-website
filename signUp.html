@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            width: 300px;
+            display: grid;
+            grid-template-columns: repeat(1,fr);
+            gap: 10px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            margin: auto;
+            padding: 5%;
+            background-color: antiquewhite;
+            border-radius: 10px;
+        }
+        #submit:hover{
+            background-color: blue;
+            color: white;
+            font-size: medium;
+            border-radius: 5px;
+            border: 0ch;
+            cursor: pointer;
+        }
+        body{
+            background-color: wheat
+        }
+        input{
+            border: 0px;
+            color: brown;
+            font-size: small;
+        }
+        button{
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            border: 0ch;
+        }
+        button:hover{
+            background-color: blue;
+            color: white;
+            font-size: medium;
+            border-radius: 5px;
+            border: 0ch;
+            cursor: pointer;
+        }
+        a:hover{
+            background-color: blue;
+            color: white;
+            font-size: medium;
+            border-radius: 5px;
+            border: 0ch;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1>Sign Up</h1>
+        <label>Name</label>
+        <input id="name"  placeholder="Enter Full Name" type="text"/>
+        <label>Phone Number</label>
+        <input id="mob"  placeholder="Number" type="number"/>
+        <label>Email</label>
+        <input id="email"  placeholder="Email" type="text"/>
+        <label>Password</label>
+        <input id="password"  placeholder="Password" type="password"/>
+        <label>Country</label>
+        <input id="country"  placeholder="Country" type="text"/>
+        <input  id="submit" type="submit" value="Submit">
+        <button><a href="logIn.html">Login</a></button>
+    </form>
+   
+</body>
+</html>
+<script>
+let admin_form=document.querySelector('form');
+admin_form.addEventListener('submit',myfun)
+let adminData=JSON.parse(localStorage.getItem("admission"))||[]
+function myfun(event){
+    event.preventDefault();
+    let Obj={
+        name:admin_form.name.value,
+        mob:admin_form.mob.value,
+        email:admin_form.email.value,
+        password:admin_form.password.value,
+        country:admin_form.country,
+
+    }
+    if(Obj.name==""||Obj.email==""||Obj.phone==""||Obj.gender==""||Obj.course==""){
+        alert("Please fill all the details")
+    }else{
+        alert("Sign In Complete *Now Click On LOGIN*")
+        adminData.push(Obj)
+        localStorage.setItem("admission",JSON.stringify(adminData))
+        
+    }
+    
+}
+</script>

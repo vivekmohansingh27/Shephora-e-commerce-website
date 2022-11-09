@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+
+        }
+        #nav{
+            display: flex;
+            justify-content: space-around;
+            padding: 2%;
+        }
+        #search{
+            height: 30px;
+            width: 300px;
+            border-radius: 20px;
+            border: 0ch;
+            background-color: rgb(237, 230, 221);
+            margin-left: 20px;
+            margin-right: 100px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        #nav>div{
+            width:100px
+        }
+        #nav>div>img{
+            width: 100%;
+            border-radius: 40px;
+        }
+        #container{
+            display: grid;
+            grid-template-columns: repeat(6,1fr);
+            grid-template-rows: auto;
+            gap: 10px;
+            margin: auto;
+            padding: 2%;
+        }
+        #container>div>img{
+            width:100%;
+
+        }
+        #container>div{
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            border-radius: 10px;
+            padding: 2%;
+        }
+        #container2{
+            padding: 2%;
+        }
+        #container2>div{
+            display:flex;
+            height: 100px;
+            width: 700px;
+            gap: 10px;
+            justify-content: space-evenly;
+            padding: 2%;
+        }
+        #container2>div>img{
+        display: flex;
+        align-content: flex-end;
+
+        }
+        #container2>div>div{
+    
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            border-radius: 10px;
+        }
+        #fav{
+            height: 30px;
+            width: 100px;
+            border-radius: 20px;
+            border: 0ch;
+            background-color: rgb(178, 83, 151);
+            margin-left: 20px;
+            margin-right: 100px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        #cart{
+            height: 30px;
+            width: 100px;
+            border-radius: 20px;
+            border: 0ch;
+            background-color: rgb(61, 23, 50);
+            margin-left: 20px;
+            margin-right: 100px;
+            margin-top: auto;
+            margin-bottom: auto;
+            color: white;
+        }
+        #signin{
+            height: 30px;
+            width: 100px;
+            border-radius: 20px;
+            border: 0ch;
+            background-color: rgb(16, 39, 152);
+            margin-left: 20px;
+            margin-right: 100px;
+            margin-top: auto;
+            margin-bottom: auto;
+            
+        }
+        #signin>a{
+            color: white;
+        }
+        #benav{
+            height: 40px;
+            background-color: black;
+            display: flex;
+            justify-content: space-evenly;
+            color: white;
+            align-items: center;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        #slide{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        #slide>div:nth-child(1){
+            width: 50%;
+            background-color: lightskyblue;
+        
+            padding: 2%;
+        }
+        #slide>div:nth-child(2){
+            width: 50%;
+            background-color: lightcoral;
+            padding: 2%;    
+        }
+        #bottom{
+            display: flex;
+            gap: 4px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        #bottom>div{
+            padding: 1%;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        }
+        #Bottom1{
+            display: flex;
+            gap: 3px;
+            margin: auto;
+            
+            color: white;
+        }
+        #Bottom1>div{
+            background-color: rgb(7, 56, 7);
+            padding: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nav">
+        <div><img width="100%" src="https://document-export.canva.com/Hs_Dw/DAFRX-Hs_Dw/4/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20221109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221109T055255Z&X-Amz-Expires=18817&X-Amz-Signature=bcade418cfd4b1cc3141b4323f3eb6f41e53b22814bd539f973fee3ef2c093da&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2009%20Nov%202022%2011%3A06%3A32%20GMT" alt="logo"></div>
+        <input id="search"  type="text" value="   Search">
+        <button id="fav">Favourites</button>
+        <button id ="cart">Cart</button>
+       <button id="signin"><a href="signUp.html">Sign In</a></button>    
+    </div>
+    
+    <div id="benav">
+        <p>New</p>
+        <p>Brands</p>
+        <p>Makeup</p>
+        <p>Skincare</p>
+        <p>Hair</p>
+        <p>Fragrance</p>
+        <p>Tools &Brushes</p>
+        <p>Bath & Body</p>
+        <p>Mini Size</p>
+        <p>Gifts</p>
+        <p>Beauty Under $20</p>
+        <p>Sale & Offer</p>
+    </div>
+    <div style="background-color: whitesmoke; text-align: center;height: 30px;" ><b>shipping is delayed due to high demand.Need it sooner? Buy Online,Pick Up In Store or get Same-Day Delviery</b></div>
+   <div id="slide">
+        <div>
+            <div> <img width="100%" src="https://www.sephora.com/contentimages/2022-fragrance-q4-site-home-page-rwd-hero-banner-holiday-value-sets-75-under-us-01..jpg?imwidth=1090" alt="">
+                <h2>Fragrance</h2></div>
+           
+            <p>Sets for everyone on your list (including you!)</p>
+            <h4>SHOP NOW ></h4>
+        </div>
+        <div>
+            <div>  <img width="100%"src="https://www.sephora.com/contentimages/2022-11-29-stock-up-on-dior-site-desktop-mweb-home-page-rwd-hero-banner-1000x750-en-us-can.jpg?imwidth=1090" alt=""></div>
+          
+            <h2>Best of Dior</h2>
+            <p>Sets for everyone on your list (including you!)</p>
+            <h4>SHOP NOW ></h4>
+        </div>
+   </div>
+   <br>
+    <div id="container">
+
+    </div>
+    <br>
+    <div id="bottom">
+        <div>
+            <div>
+                <img width="100%" src="https://www.sephora.com/contentimages/promo/beautyoffers/2022/November/2022-fragrance-q4-site-beauty-offers-banner-1000x750-smgm-us-khols.jpg?imwidth=480" alt="">  
+            </div>
+            <h3>Spend More , Get More Fragrance</h3>
+            <h5>Get 1 mini with $45 product purchase, 2 minis with $75 product purchase, or 3 minis with $105 product purchase.</h5>
+            <p>Beauty Insider members only.
+                Online only*Exclusions/terms apply. While supplies last.</p>
+                <button>Apply</button>
+        </div>
+        <div>
+            <div>
+                <img width="100%" src="https://www.sephora.com/contentimages/promo/beautyoffers/2022/November/percent-off-basket-app-content-card-promo.png?imwidth=480" alt="">  
+            </div>
+            <h3>Spend More , Get More Fragrance</h3>
+            <h5>Get 1 mini with $45 product purchase, 2 minis with $75 product purchase, or 3 minis with $105 product purchase.</h5>
+            <p>Beauty Insider members only.
+                Online only*Exclusions/terms apply. While supplies last.</p>
+                <button>Apply</button>
+        </div>
+        <div>
+            <div>
+                <img width="100%" src="https://www.sephora.com/contentimages/promo/beautyoffers/2022/November/2022-11-9-skinfix-core-focus-site-desktop-mobile-app-beauty-offers-page-banner-en-us-can.jpg?imwidth=480" alt="">  
+            </div>
+            <h3>Spend More , Get More Fragrance</h3>
+            <h5>Get 1 mini with $45 product purchase, 2 minis with $75 product purchase, or 3 minis with $105 product purchase.</h5>
+            <p>Beauty Insider members only.
+                Online only*Exclusions/terms apply. While supplies last.</p>
+                <button>Apply</button>
+        </div>
+        <div>
+            <div>
+                <img width="100%" src="https://www.sephora.com/contentimages/promo/beautyoffers/2022/October/2022-10-27-black-owned-brands-site-desktop-mobile-app-beauty-offers-page-banner-en-us.jpg?imwidth=480" alt="">  
+            </div>
+            <h3>Spend More , Get More Fragrance</h3>
+            <h5>Get 1 mini with $45 product purchase, 2 minis with $75 product purchase, or 3 minis with $105 product purchase.</h5>
+            <p>Beauty Insider members only.
+                Online only*Exclusions/terms apply. While supplies last.</p>
+                <button>Apply</button>
+        </div>
+        <div>
+            <div>
+                <img width="100%" src="https://www.sephora.com/contentimages/promo/beautyoffers/2022/October/2022-10-24-slotting-promo-app-beauty-offers-banner-STRONGERHAIR-us-handoff.jpg?imwidth=480" alt="">  
+            </div>
+            <h3>Spend More , Get More Fragrance</h3>
+            <h5>Get 1 mini with $45 product purchase, 2 minis with $75 product purchase, or 3 minis with $105 product purchase.</h5>
+            <p>Beauty Insider members only.
+                Online only*Exclusions/terms apply. While supplies last.</p>
+                <button>Apply</button>
+        </div>
+    </div>
+    <br>
+    <div id="Bottom1">
+        <div>
+            <h3>Your Holiday Gift With Surprizes</h3>
+            <h5>Get 1 mini with $45 product purchase</h5>
+            <p>Beauty Insider members only
+            </p>
+            <h4>Shop Now ></h4>
+                <div>
+                    <img width="100%" src="https://www.sephora.com/contentimages/2022-holiday-launch-site-mobile-desktop-home-page-rwd-marketing-banner-holiday-hub-800x256-us-can-kohls.jpg?imwidth=800" alt="">  
+                </div>
+        </div>
+        <div>
+            <h3>Your Holiday Gift With Surprizes</h3>
+            <h5>Get 1 mini with $45 product purchase</h5>
+            <p>Beauty Insider members only
+            </p>
+            <h4>Shop Now ></h4>
+                <div>
+                    <img width="100%" src="https://www.sephora.com/contentimages/2022-11-seasonal-services-wave3-holiday-site-desktop-mobile-home-page-rwd-marketing-banner-us-800x256.jpg?imwidth=800" alt="">  
+                </div>
+        </div>
+        <div>
+            <h3>Your Holiday Gift With Surprizes</h3>
+            <h5>Get 1 mini with $45 product purchase</h5>
+            <p>Beauty Insider members only
+            </p>
+            <h4>Shop Now ></h4>
+                <div>
+                    <img width="100%" src="https://www.sephora.com/contentimages/2022-holiday-launch-site-desktop-mobile-home-page-rwd-marketing-banner-bottom-banner-ease-and-convenience-800x256-us-can.jpg?imwidth=800" alt="">  
+                </div>
+        </div>
+    </div>
+    <br>
+    <div id="container2"> 
+        <h3><b>Featured Categories </b></h3>
+        <h5>Shop What's Popular Now</h5>
+        <br>
+        <div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/092022/Homepage/RWD/gifts%2032@3x.png?imwidth=106" alt="">
+            </div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/100422/Homepage/RWD/under25%2032@3x.jpg?imwidth=106" alt="">
+            </div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/060222/Homepage/RWD/CategoryTiles/homepage_featured_category_tile_skincare_cleanser_moisturizer_us_ca_rwd_slice.jpg?imwidth=106" alt="">
+            </div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/091322/Homepage/RWD/hair%20dryer.JPG?imwidth=106" alt="">
+            </div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/060222/Homepage/RWD/CategoryTiles/homepage_featured_category_tile_samples_32_us_ca_rwd_slice.png?imwidth=106" alt="">
+            </div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/060222/Homepage/RWD/CategoryTiles/homepage_featured_category_tile_sephoracollection_SC_us_ca_rwd_slice.jpg?imwidth=106" alt="">
+            </div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/060222/Homepage/RWD/CategoryTiles/homepage_featured_category_tile_fragrance_bottle_us_ca_rwd_slice.jpg?imwidth=106" alt="">
+            </div>
+        </div>
+
+        <h3><b>Featured Categories </b></h3>
+        <h5>Shop What's Popular Now</h5>
+        <br>
+        <div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/092022/Homepage/RWD/gifts%2032@3x.png?imwidth=106" alt="">
+            </div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/100422/Homepage/RWD/under25%2032@3x.jpg?imwidth=106" alt="">
+            </div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/060222/Homepage/RWD/CategoryTiles/homepage_featured_category_tile_skincare_cleanser_moisturizer_us_ca_rwd_slice.jpg?imwidth=106" alt="">
+            </div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/091322/Homepage/RWD/hair%20dryer.JPG?imwidth=106" alt="">
+            </div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/060222/Homepage/RWD/CategoryTiles/homepage_featured_category_tile_samples_32_us_ca_rwd_slice.png?imwidth=106" alt="">
+            </div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/060222/Homepage/RWD/CategoryTiles/homepage_featured_category_tile_sephoracollection_SC_us_ca_rwd_slice.jpg?imwidth=106" alt="">
+            </div>
+            <div>
+                <h5>Gifts & Value Sets</h5>
+                <img width="50%" src="https://www.sephora.com/contentimages/homepage/060222/Homepage/RWD/CategoryTiles/homepage_featured_category_tile_fragrance_bottle_us_ca_rwd_slice.jpg?imwidth=106" alt="">
+            </div>
+        </div>
+        
+    </div>
+    <div id="Bottom1">
+        <div>
+            <h3>Your Holiday Gift With Surprizes</h3>
+            <h5>Get 1 mini with $45 product purchase</h5>
+            <p>Beauty Insider members only
+            </p>
+            <h4>Shop Now ></h4>
+                <div>
+                    <img width="100%" src="https://www.sephora.com/contentimages/homepage/060222/Homepage/RWD/homepage-reassurance-banner-diversity-inclusion-desktop-mobile-us-ca-slice.jpeg?imwidth=800" alt="">  
+                </div>
+        </div>
+        <div>
+            <h3>Your Holiday Gift With Surprizes</h3>
+            <h5>Get 1 mini with $45 product purchase</h5>
+            <p>Beauty Insider members only
+            </p>
+            <h4>Shop Now ></h4>
+                <div>
+                    <img width="100%" src="https://www.sephora.com/contentimages/2022-holiday-launch-site-desktop-mobile-home-page-rwd-marketing-banner-bottom-banner-ease-and-convenience-800x256-us-can.jpg?imwidth=800" alt="">  
+                </div>
+        </div>
+        <div>
+            <h3>Your Holiday Gift With Surprizes</h3>
+            <h5>Get 1 mini with $45 product purchase</h5>
+            <p>Beauty Insider members only
+            </p>
+            <h4>Shop Now ></h4>
+                <div>
+                    <img width="100%" src="https://www.sephora.com/contentimages/2022-holiday-launch-site-mobile-desktop-home-page-rwd-marketing-banner-holiday-hub-800x256-us-can-kohls.jpg?imwidth=800" alt="">  
+                </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+    let url="https://636b4595ad62451f9fad0212.mockapi.io/Products"
+    async function getData(){
+        try {
+            let res = await fetch(`./data.json`)
+            let data = await res.json()
+                    displayProduct(data)            
+        } catch (error) {
+            alert(error)
+        }
+    }
+    getData()
+
+    function displayProduct(data){
+        data.forEach(element => {
+            let div = document.createElement("div")
+
+        let Images = document.createElement("img")
+        Images.setAttribute("src",element.images)
+
+        let Name = document.createElement("h2")
+        Name.innerText = element.name;
+
+        let Des = document.createElement("p")
+        Des.innerText = element.description
+
+        let label= document.createElement("label")
+        label.innerText = "Price:-"
+        
+        let Price = document.createElement("p")
+        Price.innerText = element.price;
+
+        let fav = document.createElement("button")
+        fav.innerText="Favourites";
+
+        let cart = document.createElement("button")
+        cart.innerText="Cart";
+
+        div.append(Images,Name,Des,label,Price,fav,cart)
+
+        document.getElementById("container").append(div)
+
+       
+
+        });
+
+        
+ 
+    }
+
+
+
+</script>
