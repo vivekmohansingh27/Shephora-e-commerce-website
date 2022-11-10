@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fav.css">
+</head>
+<body>
+    <div id="nav">
+        <div><img width="100%" src="https://document-export.canva.com/Hs_Dw/DAFRX-Hs_Dw/4/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20221109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221109T055255Z&X-Amz-Expires=18817&X-Amz-Signature=bcade418cfd4b1cc3141b4323f3eb6f41e53b22814bd539f973fee3ef2c093da&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2009%20Nov%202022%2011%3A06%3A32%20GMT" alt="logo"></div>
+        <input id="search"  type="text" value="   Search">
+        <button id="fav"><a href="Home.html">Home</a></button>
+        <button id ="cart">Cart</button>
+       <button id="signin"><a href="signUp.html">Sign In</a></button>    
+    </div>
+    
+    <div id="benav">
+        <p>New</p>
+        <p>Brands</p>
+        <p>Makeup</p>
+        <p>Skincare</p>
+        <p>Hair</p>
+        <p>Fragrance</p>
+        <p>Tools &Brushes</p>
+        <p>Bath & Body</p>
+        <p>Mini Size</p>
+        <p>Gifts</p>
+        <p>Beauty Under $20</p>
+        <p>Sale & Offer</p>
+    </div>
+    <div style="background-color: whitesmoke; text-align: center;height: 30px;" ><b>shipping is delayed due to high demand.Need it sooner? Buy Online,Pick Up In Store or get Same-Day Delviery</b></div>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+
+<script>
+    let data = JSON.parse(localStorage.getItem("FAV"));
+
+    let CartP=JSON.parse(localStorage.getItem("cartPage"))||[];
+
+    displayProduct(data)
+
+    function displayProduct(out){
+        document.querySelector("#container").innerHTML=null;
+
+        out.forEach(function(element,i)
+        {
+            let div = document.createElement("div")
+
+        let Images = document.createElement("img")
+        Images.setAttribute("src",element.images)
+
+        let Name = document.createElement("h2")
+        Name.innerText = element.name;
+
+        let Des = document.createElement("p")
+        Des.innerText = element.description
+
+        let label= document.createElement("label")
+        label.innerText = "Price:-"
+        
+        let Price = document.createElement("p")
+        Price.innerText = element.price;
+
+        let remove = document.createElement("button")
+        remove.innerText="Remove";
+        remove.addEventListener("click",function(){
+            delete1(element,i)
+        })
+
+        let cart = document.createElement("button")
+        cart.innerText="Cart";
+        cart.addEventListener("click",function(){
+            CartP.push(element)
+            localStorage.setItem("cartPage",JSON.stringify(CartP))
+            delete1(element,i)
+        })
+
+        div.append(Images,Name,Des,label,Price,cart,remove)
+
+        document.querySelector("#container").append(div)
+
+       
+
+        });
+
+        
+ 
+    }
+
+    function delete1(element,i){
+        data.splice(i,1)
+        displayProduct(data)
+        localStorage.setItem("FAV",JSON.stringify(data))
+    }
+
+</script>
