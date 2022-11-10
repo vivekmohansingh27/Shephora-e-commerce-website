@@ -5,169 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="Home.css">
     
-    <style>
-        *{
-            margin: 0%;
-            padding: 0%;
-
-        }
-        #nav{
-            display: flex;
-            justify-content: space-around;
-            padding: 2%;
-        }
-        #search{
-            height: 30px;
-            width: 300px;
-            border-radius: 20px;
-            border: 0ch;
-            background-color: rgb(237, 230, 221);
-            margin-left: 20px;
-            margin-right: 100px;
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-        #nav>div{
-            width:100px
-        }
-        #nav>div>img{
-            width: 100%;
-            border-radius: 40px;
-        }
-        #container{
-            display: grid;
-            grid-template-columns: repeat(6,1fr);
-            grid-template-rows: auto;
-            gap: 10px;
-            margin: auto;
-            padding: 2%;
-        }
-        #container>div>img{
-            width:100%;
-
-        }
-        #container>div{
-            text-align: center;
-            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-            border-radius: 10px;
-            padding: 2%;
-        }
-        #container2{
-            padding: 2%;
-        }
-        #container2>div{
-            display:flex;
-            height: 100px;
-            width: 700px;
-            gap: 10px;
-            justify-content: space-evenly;
-            padding: 2%;
-        }
-        #container2>div>img{
-        display: flex;
-        align-content: flex-end;
-
-        }
-        #container2>div>div{
-    
-            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-            border-radius: 10px;
-        }
-        #fav{
-            height: 30px;
-            width: 100px;
-            border-radius: 20px;
-            border: 0ch;
-            background-color: rgb(178, 83, 151);
-            margin-left: 20px;
-            margin-right: 100px;
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-        #cart{
-            height: 30px;
-            width: 100px;
-            border-radius: 20px;
-            border: 0ch;
-            background-color: rgb(61, 23, 50);
-            margin-left: 20px;
-            margin-right: 100px;
-            margin-top: auto;
-            margin-bottom: auto;
-            color: white;
-        }
-        #signin{
-            height: 30px;
-            width: 100px;
-            border-radius: 20px;
-            border: 0ch;
-            background-color: rgb(16, 39, 152);
-            margin-left: 20px;
-            margin-right: 100px;
-            margin-top: auto;
-            margin-bottom: auto;
-            
-        }
-        #signin>a{
-            color: white;
-        }
-        #benav{
-            height: 40px;
-            background-color: black;
-            display: flex;
-            justify-content: space-evenly;
-            color: white;
-            align-items: center;
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-        #slide{
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-        }
-        #slide>div:nth-child(1){
-            width: 50%;
-            background-color: lightskyblue;
-        
-            padding: 2%;
-        }
-        #slide>div:nth-child(2){
-            width: 50%;
-            background-color: lightcoral;
-            padding: 2%;    
-        }
-        #bottom{
-            display: flex;
-            gap: 4px;
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-        #bottom>div{
-            padding: 1%;
-            margin: auto;
-            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-        }
-        #Bottom1{
-            display: flex;
-            gap: 3px;
-            margin: auto;
-            
-            color: white;
-        }
-        #Bottom1>div{
-            background-color: rgb(7, 56, 7);
-            padding: 1px;
-        }
-    </style>
 </head>
 <body>
 
     <div id="nav">
         <div><img width="100%" src="https://document-export.canva.com/Hs_Dw/DAFRX-Hs_Dw/4/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20221109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221109T055255Z&X-Amz-Expires=18817&X-Amz-Signature=bcade418cfd4b1cc3141b4323f3eb6f41e53b22814bd539f973fee3ef2c093da&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2009%20Nov%202022%2011%3A06%3A32%20GMT" alt="logo"></div>
         <input id="search"  type="text" value="   Search">
-        <button id="fav">Favourites</button>
+        <button id="fav"><a href="fav.html">FAv</a></button>
         <button id ="cart">Cart</button>
        <button id="signin"><a href="signUp.html">Sign In</a></button>    
     </div>
@@ -205,7 +51,8 @@
    </div>
    <br>
     <div id="container">
-
+        <h3>Choosen for You</h3>
+        <div></div>
     </div>
     <br>
     <div id="bottom">
@@ -411,8 +258,11 @@
         }
     }
     getData()
+    Addfav = JSON.parse(localStorage.getItem("FAV"))||[];
+    favObj={};
 
     function displayProduct(data){
+        document.querySelector("#container>div").innerHTML=""
         data.forEach(element => {
             let div = document.createElement("div")
 
@@ -433,13 +283,27 @@
 
         let fav = document.createElement("button")
         fav.innerText="Favourites";
+        fav.addEventListener("click",function(){
+            for(let i=0;i< Addfav.length;i++){
+                if(Addfav[i].Title== element.Title){
+                    alert("alery")
+                    return ;
+                }
+            }
+
+            Addfav.push(element)
+        
+                localStorage.setItem("FAV",JSON.stringify(Addfav))
+
+          
+        })
 
         let cart = document.createElement("button")
         cart.innerText="Cart";
 
-        div.append(Images,Name,Des,label,Price,fav,cart)
+        div.append(Images,Name,Des,label,Price,fav)
 
-        document.getElementById("container").append(div)
+        document.querySelector("#container>div").append(div)
 
        
 
