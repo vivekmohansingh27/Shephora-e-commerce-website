@@ -71,7 +71,7 @@
         <label>Country</label>
         <input id="country"  placeholder="Country" type="text"/>
         <input  id="submit" type="submit" value="Submit">
-        <button><a href="logIn.html">Login</a></button>
+        
     </form>
    
 </body>
@@ -79,7 +79,7 @@
 <script>
 let admin_form=document.querySelector('form');
 admin_form.addEventListener('submit',myfun)
-let adminData=JSON.parse(localStorage.getItem("admission"))||[]
+let adminData=JSON.parse(localStorage.getItem("user"))||[]
 function myfun(event){
     event.preventDefault();
     let Obj={
@@ -93,10 +93,10 @@ function myfun(event){
     if(Obj.name==""||Obj.email==""||Obj.phone==""||Obj.gender==""||Obj.course==""){
         alert("Please fill all the details")
     }else{
-        alert("Sign In Complete *Now Click On LOGIN*")
+        alert("Sign In Complete")
         adminData.push(Obj)
-        localStorage.setItem("admission",JSON.stringify(adminData))
-        
+        localStorage.setItem("user",JSON.stringify(adminData))
+        alert(window.location.href="./logIn.html")
     }
     
 }

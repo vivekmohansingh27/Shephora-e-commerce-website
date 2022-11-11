@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="Home.css">
+    <script src="https://kit.fontawesome.com/8db33c238e.js" crossorigin="anonymous"></script>
     
 </head>
 <body>
@@ -13,8 +14,8 @@
     <div id="nav">
         <div><img width="100%" src="https://document-export.canva.com/Hs_Dw/DAFRX-Hs_Dw/4/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20221109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221109T055255Z&X-Amz-Expires=18817&X-Amz-Signature=bcade418cfd4b1cc3141b4323f3eb6f41e53b22814bd539f973fee3ef2c093da&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2009%20Nov%202022%2011%3A06%3A32%20GMT" alt="logo"></div>
         <input id="search"  type="text" value="   Search">
-        <button id="fav"><a href="fav.html">FAv</a></button>
-        <button id ="cart">Cart</button>
+        <button id="fav"><a href="fav.html"><i class="fa-thin fa-heart"></i>Favourites</a></button>
+        <button id ="cart"><a href="cart.html">Cart</a></button>
        <button id="signin"><a href="signUp.html">Sign In</a></button>    
     </div>
     
@@ -243,6 +244,73 @@
                 </div>
         </div>
     </div>
+    <br>
+    <div style="background-color: whitesmoke; text-align: center;height: 30px;" ><b>Website feedback? Let us know</b></div>
+    <div id="footer">
+        <div id="footup">
+            <button class="button">
+                Find a Store
+                Choose Your Store
+                </button>
+            <button class="button">Live Beauty Help
+                Chat is unavailable</button>
+            <button class="button">Get the App
+                Text “APP” to 36681</button>
+            <button class="button">Get Sephora Text Alerts
+                Sign up Now</button>
+        </div>
+        <div id="footdown">
+            <div>
+                <h3>About Sephora</h3>
+                <p>About Sephora</p>
+                <p>Newsroom</p>
+                <p>Careers</p>
+                <p>Sephora Social Impact</p>
+                <p> Supply Chain Transparency</p>
+                <p>Affiliates</p>
+                <p>Sephora Events</p>
+                <p>Gift Cards</p> 
+                <p>Sephora Global Sites</p>
+                <p>Diversity and Inclusion</p>
+                <p>Checkout on Instagram</p>
+                <p>Sephora Accelerate</p>
+                <p>Report a Vulnerability</p>   
+            </div>
+            <div>
+                <h3>My Sephora</h3>
+                <p>Beauty Insider</p>
+                <p>Sephora Credit Card</p>
+                <p>Community Profile</p>
+                <p>Order Status</p>
+                <p>Purchase History</p>
+                <p>Account Settings</p>
+                <p>Beauty Advisor Recommendations</p>
+                <p>Beauty Offers</p>
+                <p>Quizzes & Buying Guides</p>
+                <p>Rewards Bazaar</p>
+                <p>Loves</p>
+                <p>Book a Reservation</p>
+            </div>
+            <div>
+                <h3>About Sephora</h3>
+                <p>About Sephora</p>
+                <p>Newsroom</p>
+                <p>Careers</p>
+                <p>Sephora Social Impact</p>
+                <p> Supply Chain Transparency</p>
+                <p>Affiliates</p>
+                <p>Sephora Events</p>
+                <p>Gift Cards</p> 
+                <p>Sephora Global Sites</p>
+                <p>Diversity and Inclusion</p>
+                <p>Checkout on Instagram</p>
+                <p>Sephora Accelerate</p>
+                <p>Report a Vulnerability</p> 
+            </div>
+
+        </div>
+        <div id="footbottom"></div>
+    </div>
 </body>
 </html>
 <script>
@@ -282,11 +350,12 @@
         Price.innerText = element.price;
 
         let fav = document.createElement("button")
+        fav.setAttribute("id","favbut")
         fav.innerText="Favourites";
         fav.addEventListener("click",function(){
             for(let i=0;i< Addfav.length;i++){
                 if(Addfav[i].Title== element.Title){
-                    alert("alery")
+                    alert("Product is already in your wishlist")
                     return ;
                 }
             }

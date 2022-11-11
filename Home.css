@@ -147,10 +147,38 @@ align-content: flex-end;
     display: flex;
     gap: 3px;
     margin: auto;
-    
+    gap:10px;
     color: white;
 }
 #Bottom1>div{
     background-color: rgb(7, 56, 7);
     padding: 1px;
+}
+#footer{
+    background-color: black;
+    color: white;
+    padding: 2%;
+}
+#footdown{
+    display: flex;
+    padding: 20px;
+}
+#footdown>div{
+    padding: 20px;
+}
+#footup{
+    display: flex;
+    justify-content: space-evenly;
+}
+.button{
+    background-color: black;
+    color: white;
+    width: 100px;
+}#favbut{
+    border-radius: 10px;
+    margin-bottom: 2px;
+    margin: auto;
+    border: 1px solid black;
+    background-color: azure;
+    width: 100px;
 }

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div id="nav">
+        <div><img width="100%" src="https://document-export.canva.com/Hs_Dw/DAFRX-Hs_Dw/4/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20221109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221109T055255Z&X-Amz-Expires=18817&X-Amz-Signature=bcade418cfd4b1cc3141b4323f3eb6f41e53b22814bd539f973fee3ef2c093da&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2009%20Nov%202022%2011%3A06%3A32%20GMT" alt="logo"></div>
+        <input id="search"  type="text" value="   Search">
+        <button id="fav"><a href="fav.html">Favourites</a></button>
+        <button id ="cart"><a href="Home.html">Home</a></button>
+       <button id="signin"><a href="signUp.html">Sign In</a></button>    
+    </div>
+    
+    <div id="benav">
+        <p>New</p>
+        <p>Brands</p>
+        <p>Makeup</p>
+        <p>Skincare</p>
+        <p>Hair</p>
+        <p>Fragrance</p>
+        <p>Tools &Brushes</p>
+        <p>Bath & Body</p>
+        <p>Mini Size</p>
+        <p>Gifts</p>
+        <p>Beauty Under $20</p>
+        <p>Sale & Offer</p>
+    </div>
+    <div style="background-color: whitesmoke; text-align: center;height: 30px;" ><b>shipping is delayed due to high demand.Need it sooner? Buy Online,Pick Up In Store or get Same-Day Delviery</b></div>
+    <div id="two">
+        <div id="container">
+        </div>
+        <div>
+            
+                <form>
+                    <h1>Shipping Address</h1>
+                    <label>Name</label>
+                    <input id="name"  placeholder="Enter Full Name" type="text"/>
+                    <label>Phone Number</label>
+                    <input id="mob"  placeholder="Number" type="number"/>
+                    <label>Email</label>
+                    <input id="email"  placeholder="Email" type="text"/>
+                    <label>Address</label>
+                    <input id="address"  placeholder="Address" type="text"/>
+                    <label>Pincode</label>
+                    <input id="pin"  placeholder="Pincode" type="number"/>
+                    <input  id="submit" type="submit" value="Submit">
+                    
+                </form>
+        
+        </div>
+    </div>
+    
+    
+</body>
+</html>
+
+<script>
+
+
+
+let data=JSON.parse(localStorage.getItem("cartPage"));
+
+displayProduct(data)
+
+function displayProduct(out){
+    document.querySelector("#container").innerHTML=null;
+
+    out.forEach(function(element,i)
+    {
+        let div = document.createElement("div")
+
+    let Images = document.createElement("img")
+    Images.setAttribute("src",element.images)
+
+    let Name = document.createElement("h2")
+    Name.innerText = element.name;
+
+    let Des = document.createElement("p")
+    Des.innerText = element.description
+
+    let label= document.createElement("label")
+    label.innerText = "Price:-"
+    
+    let Price = document.createElement("p")
+    Price.innerHTML = element.price
+
+    let remove = document.createElement("p")
+    remove.innerText="Remove"
+    remove.setAttribute("id","blue")
+    remove.addEventListener("click",function(){
+        delete1(element,i)
+    })
+
+    let div1 = document.createElement("div")
+
+    div1.append(Name,Des,label,Price,remove)
+
+    let pay = document.createElement("button")
+    pay.innerText="Pay";
+    pay.addEventListener("click",function(){
+        alert("Please fill the Address Details")
+    })
+
+    div.append(Images,div1,pay)
+
+    document.querySelector("#container").append(div)
+ 
+
+    });
+    }
+    function delete1(element,i){
+        data.splice(i,1)
+        displayProduct(data)
+        localStorage.setItem("FAV",JSON.stringify(data))
+    }
+
+
+    let admin_form=document.querySelector('form');
+    admin_form.addEventListener('submit',myfun)
+    let adminData=JSON.parse(localStorage.getItem("address"))||[]
+    function myfun(event){
+    event.preventDefault();
+    let Obj={
+        name:admin_form.name.value,
+        mob:admin_form.mob.value,
+        email:admin_form.email.value,
+        address:admin_form.address.value,
+        pin:admin_form.pin,
+
+    }
+    if(Obj.name==""||Obj.email==""||Obj.phone==""||Obj.gender==""||Obj.course==""){
+        alert("Please fill all the details")
+    }else{
+        alert("Your is placed")
+        adminData.push(Obj)
+        localStorage.setItem("address",JSON.stringify(adminData))
+        
+    }
+    
+}
+
+</script>

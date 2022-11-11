@@ -49,16 +49,16 @@
         <label>Password</label>
         <input id="password"  placeholder="Password" type="password"/>
         <input  id="submit" type="submit" value="Submit">
-        <a href="Home.html">Home</a>
+       
     </form>
    
 </body>
 </html>
 <script>
-let matchData=JSON.parse(localStorage.getItem("admission"))
+let matchData=JSON.parse(localStorage.getItem("user"))
 let admin_form=document.querySelector('form');
 admin_form.addEventListener('submit',myfun)
-let adminData=JSON.parse(localStorage.getItem("admission"))||[]
+let adminData=JSON.parse(localStorage.getItem("user"))||[]
 
 function myfun(event){
     event.preventDefault();
@@ -75,7 +75,8 @@ function myfun(event){
     }else{
         matchData.forEach(function(ele){
             if(Obj.mob==ele.mob && Obj.email==ele.email && Obj.password==ele.password){
-                alert("Login Successfull *Click on Home*")
+                alert("Login Successfull *Click on Home*",)
+                alert(window.location.href="./Home.html")
             }
         })
         }
