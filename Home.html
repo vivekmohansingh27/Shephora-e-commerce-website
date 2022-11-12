@@ -6,17 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="Home.css">
-    <script src="https://kit.fontawesome.com/8db33c238e.js" crossorigin="anonymous"></script>
-    
+    <!-- <script src="https://kit.fontawesome.com/2ec7b42e39.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 5,
+          'wght' 1000,
+          'GRAD' 0,
+          'opsz' 48
+        }
+        </style>
 </head>
 <body>
 
     <div id="nav">
-        <div><img width="100%" src="https://document-export.canva.com/Hs_Dw/DAFRX-Hs_Dw/4/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20221109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221109T055255Z&X-Amz-Expires=18817&X-Amz-Signature=bcade418cfd4b1cc3141b4323f3eb6f41e53b22814bd539f973fee3ef2c093da&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2009%20Nov%202022%2011%3A06%3A32%20GMT" alt="logo"></div>
-        <input id="search"  type="text" value="   Search">
-        <button id="fav"><a href="fav.html"><i class="fa-thin fa-heart"></i>Favourites</a></button>
-        <button id ="cart"><a href="cart.html">Cart</a></button>
-       <button id="signin"><a href="signUp.html">Sign In</a></button>    
+        <div><img width="100%" src="Cosmo.png" alt="logo"></div>
+        <input oninput="search()" id="search"  type="text" value=" Search">
+        <div id="navinsider">
+            <button style="border:0px; background-color:white; height:20px"><span class="material-symbols-outlined">
+                storefront
+                </span>Store Services</button>
+            <button style="border:0px; background-color:white; height:20px"><span class="material-symbols-outlined">
+                groups
+                </span>Community</button>
+            <button id="fav"><a href="fav.html"><span class="material-symbols-outlined">
+                favorite
+                </span></a></button>
+            <button id ="cart"><a href="cart.html"><span class="material-symbols-outlined">
+                garden_cart
+                </span></a></button>
+           <button id="signin"><a href="signUp.html"><span class="material-symbols-outlined">
+            person
+            </span></a></button>
+        </div>
+           
     </div>
     
     <div id="benav">
@@ -248,15 +272,23 @@
     <div style="background-color: whitesmoke; text-align: center;height: 30px;" ><b>Website feedback? Let us know</b></div>
     <div id="footer">
         <div id="footup">
-            <button class="button">
+            <button class="button"><span class="material-symbols-outlined">
+                storefront
+                </span>
                 Find a Store
                 Choose Your Store
                 </button>
-            <button class="button">Live Beauty Help
+            <button class="button"><span class="material-symbols-outlined">
+                phone_in_talk
+                </span>Live Beauty Help
                 Chat is unavailable</button>
-            <button class="button">Get the App
+            <button class="button"><span class="material-symbols-outlined">
+                edgesensor_high
+                </span>Get the App
                 Text “APP” to 36681</button>
-            <button class="button">Get Sephora Text Alerts
+            <button class="button"><span class="material-symbols-outlined">
+                edgesensor_high
+                </span>Get Sephora Text Alerts
                 Sign up Now</button>
         </div>
         <div id="footdown">
@@ -314,22 +346,24 @@
 </body>
 </html>
 <script>
+    let bag=[];
 
     let url="https://636b4595ad62451f9fad0212.mockapi.io/Products"
     async function getData(){
         try {
             let res = await fetch(`./data.json`)
             let data = await res.json()
-                    displayProduct(data)            
+                    displayProduct(data)
+                    bag=data   ;        
         } catch (error) {
             alert(error)
         }
-    }
-    getData()
-    Addfav = JSON.parse(localStorage.getItem("FAV"))||[];
-    favObj={};
+         }
+         getData()
+        Addfav = JSON.parse(localStorage.getItem("FAV"))||[];
+         favObj={};
 
-    function displayProduct(data){
+        function displayProduct(data){
         document.querySelector("#container>div").innerHTML=""
         data.forEach(element => {
             let div = document.createElement("div")
@@ -351,7 +385,9 @@
 
         let fav = document.createElement("button")
         fav.setAttribute("id","favbut")
-        fav.innerText="Favourites";
+        fav.innerHTML=`<span class="material-symbols-outlined">
+        favorite
+        </span>Favourites`;
         fav.addEventListener("click",function(){
             for(let i=0;i< Addfav.length;i++){
                 if(Addfav[i].Title== element.Title){
@@ -377,11 +413,19 @@
        
 
         });
-
+     
         
  
     }
+    function search(){
+         let x=  document.querySelector("#search").value
 
+        let newData= bag.filter(ele =>{
+         return ele.description.toLowerCase().includes(x.toLowerCase())
+        });
+        displayProduct(newData)
+
+        }
 
 
 </script>
